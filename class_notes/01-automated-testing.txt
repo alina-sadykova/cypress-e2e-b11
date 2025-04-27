@@ -1,0 +1,78 @@
+Manual: has no coding skills
+Detailed-oriented
+Documentation
+They have knowledge for every details of the app
+Human efforts
+
+
+60k-140k
+
+
+Automation: coding skills
+
+Programming language: JavaScript, TypeScript, C#, Java, Python
+
+Automation tools:
+	UI: Selenium WebDriver, Cypress, Playwright, Katalon, TOSCA
+
+	UI Cloud Tools: BrowserStack, SeeTest, SauceLabs, Perfecto
+
+	API: Cypress, Playwright, Karate, Rest-Assured, RestSharp
+
+	Mobile Testing: UI Cloud Tools, Appium
+
+	Performance Testing tools: JMeter, LoadRunner, NeoRunner, BlazeMeter
+
+	Pipelines: Github Actions, Jenkins, Azure Pipelines, GitLab, CircleCI
+
+	Unit Testing tools: Mocha/Chai/Jest/Jasmine, NUnit/XUnit, JUnit/TestNG, PyTest
+
+	BDD tools: Cucumber/JBehave
+
+	Build tools: Node.js/NPM/NPX, Maven/Gradle/Ant, DotNet (.NET)
+
+	Accessibility Testing tools: Playwright
+
+	Some other tools: JIRA, Postman, Azure DevOps, SQL IDE and many others.
+
+	160-170
+
+
+
+QA Engineer
+QA Test Engineer
+QA Automation Engineer 
+SDET and Software Engineer in Test
+
+80k-250k
+
+
+
+Node.js
+JS used to be running only in browsers.
+
+Node.js made JS to be executed in the machines without need of browsers.
+
+When you install Node.js in local, you also get npm/npx
+
+npm: node package manager
+npx: node package executor
+
+
+package = libraries = modules = these are lots of useful methods, prototypes or classes written by someone and shared with the others.
+
+
+npx playwright test
+npx cypress open
+
+
+npm: can be consireded as the Apple Store for packages
+
+npm is used one time to install a dependency
+npx can be used frequently to run npm packages
+
+
+npm install cypress -D
+npm install cypress --save-dev
+
+These flags stores dependencies as dev dependency
