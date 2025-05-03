@@ -1,0 +1,28 @@
+
+
+	CSS Locators
+
+	Attribute Selectors
+
+		<input data-testid="element1" value="apple" type="checkbox">
+
+		Why we need the Attribute Selectors ?
+
+		-[data-testid="element1"]
+		-[value="apple"]
+		-[type="checkbox"]
+
+
+		<input id="input1">
+		<input id="input2">
+		<input id="input3">
+
+		cy.get('#input1, #input2, #input3')
+
+		cy.get('[id^="input]')
+
+
+	- PSUEDO CLASSES IN CSS
+
+		* input:checked
+		* input:last-child
