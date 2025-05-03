@@ -57,28 +57,28 @@ describe("Project 1", () => {
     cy.get("@genderSelectInput").should("have.attr", "required");
 
     // Validate the options are “Female”, “Male” and “Prefer not to disclose”
-    cy.get("label[class='radio']").each(($radioLabel, index) => {
-      cy.wrap($radioLabel).should("have.text", genderLabels[index]);
+    cy.get("label[class='radio']").each((radioLabel, index) => {
+      cy.wrap(radioLabel).should("have.text", genderLabels[index]);
     });
 
     // Validate the options are clickable and not selected
-    cy.get("@genderSelectInput").each(($radioInput) => {
-      cy.wrap($radioInput).click().should("not.be.selected");
+    cy.get("@genderSelectInput").each((radioInput) => {
+      cy.wrap(radioInput).click().should("not.be.selected");
     });
 
     // Click on the “Male” option and validate it is selected while the others are not selected
     cy.get("@genderSelectInput").eq(0).click().should("be.checked");
-    cy.get("@genderSelectInput").each(($el, index) => {
+    cy.get("@genderSelectInput").each((el, index) => {
       if (index !== 0) {
-        cy.wrap($el).should("not.be.checked");
+        cy.wrap(el).should("not.be.checked");
       }
     });
 
     // Click on the “Female” option and validate it is selected while the others are not selected
     cy.get("@genderSelectInput").eq(1).click().should("be.checked");
-    cy.get("@genderSelectInput").each(($el, index) => {
+    cy.get("@genderSelectInput").each((el, index) => {
       if (index !== 1) {
-        cy.wrap($el).should("not.be.checked");
+        cy.wrap(el).should("not.be.checked");
       }
     });
   });
@@ -162,13 +162,10 @@ describe("Project 1", () => {
   it("Test Case 09 - Validate the SUBMIT button", () => {
     // Validate the “SUBMIT” button is displayed
     // Validate that the button text is “SUBMIT”
-    cy.get('.button[type="submit"]')
-      .should("be.visible")
-      .and("have.text", "SUBMIT");
-
     // Validate the “SUBMIT” button is clickable
     cy.get('.button[type="submit"]')
       .should("be.visible")
+      .and("have.text", "SUBMIT")
       .and("not.be.disabled")
       .click();
   });
