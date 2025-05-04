@@ -2,6 +2,9 @@
 
 describe("Cypress Actions", () => {
   beforeEach(() => {
+    cy.visit("https://www.techglobal-training.com/frontend");
+  });
+  beforeEach(() => {
     cy.contains(".card", "HTML Elements").click();
   });
 

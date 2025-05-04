@@ -2,6 +2,9 @@
 
 describe("Dropdown select", () => {
   beforeEach(() => {
+    cy.visit("https://www.techglobal-training.com/frontend");
+  });
+  beforeEach(() => {
     cy.contains(".card", "Dropdowns").click();
   });
 
@@ -44,23 +47,44 @@ describe("Dropdown select", () => {
     cy.get('span[aria-label="Delivery"]').click();
   });
 
-  it.only("Validate the result of selections", () => {
-    /*
-        Select "iPad Pro 11"
-        Select "Green"
-        Select "Pick up"
-        Click on "SUBMIT" button
-        Validate "Your Green iPad Pro 11 is ready to be picked up." is visible
-      */
-    cy.get("#product_dropdown")
-      .select("iPad Pro 11")
-      .should("contain.text", "iPad Pro 11");
-    cy.get("#color_dropdown").select("Green").should("contain.text", "Green");
-    cy.get('div[aria-label="Dropdown select"]')
-      .click()
-      .contains('span[aria-label="Pick up"]', "Pick up")
-      .click();
-    cy.get("#submit").should("have.text", "SUBMIT").click();
-    cy.get("#result").should("be.visible");
+  [
+    {
+      product: "Apple Watch Series 8",
+      color: "Yellow",
+      delivery: "Delivery",
+    },
+    {
+      product: "iPad Pro 11",
+      color: "Green",
+      delivery: "Pick up",
+    },
+  ].forEach(({ product, color, delivery }) => {
+    it(`Validate the result of selections for ${product}`, () => {
+      /*
+            Select "iPad Pro 11"
+            Select "Green"
+            Select "Pick up"
+            Click on "SUBMIT" button
+            Validate "Your Green iPad Pro 11 is ready to be picked up." is visible
+          */
+      //   const product = "iPad Pro 11";
+      //   const color = "Green";
+      //   const delivery = "Pick up";
+      const deliveryMessage =
+        deliveryOrPickup === "Pick up"
+          ? "is ready to be picked up"
+          : "will be delivered to you";
+      const expectedResult = `Your ${color} ${product} ${deliveryMessage}.`;
+      cy.get("#product_dropdown")
+        .select(product)
+        .should("contain.text", product);
+      cy.get("#color_dropdown").select(color).should("contain.text", color);
+      cy.get('div[aria-label="Dropdown select"]')
+        .click()
+        .contains(`span[aria-label="${delivery}"]`, delivery)
+        .click();
+      cy.get("#submit").should("have.text", "SUBMIT").click();
+      cy.get("#result").should("have.text", expectedResult);
+    });
   });
 });
