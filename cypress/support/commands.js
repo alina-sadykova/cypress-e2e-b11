@@ -11,6 +11,10 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
+
+Cypress.Commands.add("clickCard", (link) => {
+  cy.contains('.card, [class*="projectCard"]', link).click();
+});
 //
 //
 // -- This is a child command --
