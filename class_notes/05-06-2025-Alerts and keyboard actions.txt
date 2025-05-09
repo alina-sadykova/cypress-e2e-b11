@@ -1,0 +1,48 @@
+05-06-2025 Cypress Recap, Handling Alerts and Mouse Keyboard  Actions
+
+
+
+	What is iFrame ?
+
+		It's a whole HTML content that is embeded inside another HTML DOM content.
+
+			- It allows developers to add another resource in the website without needing to navigate to another website.
+
+				* Adds
+				* Navigation Apps
+				* YouTube Viodes
+				* Etc.
+
+		What is the problem on accessing content in the iFrame ?
+
+		cy 			=> Whole HTML Body
+			cy.title()
+			cy.url()
+
+			cy.get() <body>My Content</body>
+
+			To access the content in iframe, first we must target the iFrame ITSELF.
+
+			cy.get('#iFrame')
+			.its('0.contentDocument.body')
+			.find('#whateveryouwant')
+
+
+			SCENARIO | IFRAME INSIDE THE IFRAME
+
+			cy.get('#iFrame')
+			.its('0.contentDocument.body')
+			.find('#iFrame2')
+			.its('0.contentDocument.body')
+			.find('#first_name')
+
+
+		MULTIPLE TABS
+
+			<a target="_blank">
+
+			Validation:
+			cy.get('a').should('have.attr', 'target', '_blank')
+
+			Interaction:
+			cy.get('a').invoke('removeAttr', 'target').click()
