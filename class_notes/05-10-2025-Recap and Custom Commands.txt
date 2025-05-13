@@ -1,0 +1,24 @@
+
+	05-10-2025 Recap and Custom Commands
+
+		File upload & download
+
+			Locate the file, and click on the download link. After clicking on the download button, assets folder will trigger the download directory, and put the downlaoded file in it.
+
+			Then, we can assert if the download is success by using 
+			cy.readFile() method
+
+			cy.readFile('downloads/downloadPath/file.csv')
+
+
+		File Upload
+
+			When we download, we look for web element <input>. Simply, input file will be created with type="file" which indicates that we can upload a file in it. After locating this input,
+
+			cy.get('uploadInput').selectFile('downloads/downloadPath/file.csv')			=> single file upload
+
+
+			cy.get('uploadInput').selectFile(['downloads/file.csv', 'path2'])			=> multiple files upload
+
+
+			cy.get('uploadInput').selectFile('downloads/downloadPath/file.csv', { action: 'drag-drop' })

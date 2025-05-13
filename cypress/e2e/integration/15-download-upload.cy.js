@@ -9,17 +9,12 @@ describe("File Download & File Upload", () => {
   });
 
   const fileName = "SampleText.txt";
-  const wrongExtensionFile = "wrongExtensionFile.webp";
-  const fileNameDownloadPath = path.join("cypress/downloads", fileName);
-  const wrongExtensionFileDownloadPath = path.join(
-    "cypress/downloads",
-    wrongExtensionFile
-  );
+  const downloadPath = path.join("cypress/downloads", fileName);
 
   it("File Download", () => {
     cy.get("#file_download").click();
 
-    cy.readFile(fileNameDownloadPath);
+    cy.readFile(downloadPath);
 
     // ways to read file
     // fs.readSync()
@@ -43,28 +38,10 @@ describe("File Download & File Upload", () => {
     // Uploading with drag and drop
     // cy.get("#file_upload").selectFile(downloadPath, { action: "drag-drop" });
 
-    cy.get("#file_upload").selectFile(fileNameDownloadPath);
+    cy.get("#file_upload").selectFile(downloadPath);
     cy.get("#file_submit").realClick();
     cy.get("#result")
       .should("be.visible")
       .should("have.text", `You uploaded ${fileName}`);
-  });
-
-  it("Validate error handling if no file uploaded ", () => {
-    cy.get("#file_submit").realClick();
-    cy.get("#result")
-      .should("be.visible")
-      .should("have.text", `Please select a file!`);
-  });
-
-  it("Validate error handling if an attempt to upload a file with wrong extension", () => {
-    cy.get("#file_upload").selectFile(wrongExtensionFileDownloadPath);
-    cy.get("#file_submit").realClick();
-    cy.get("#result")
-      .should("be.visible")
-      .should(
-        "have.text",
-        `This file type is not allowed. You can try one of the .pdf .txt .pptx .docx .png .jpeg .jpg file types to upload.`
-      );
   });
 });

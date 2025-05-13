@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress run",
+    "test:open": "npx cypress open",
+    "test:config": "npm t -- --browser chrome --config viewportHeight=720,viewportWidth=1080 --headed"
   },
   "keywords": [],
-  "author": "Alina S.",
+  "author": "Alina Sadyk",
   "license": "ISC",
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^2.3.0",
     "cypress": "^14.3.2",
-    "cypress-real-events": "^1.14.0"
+    "cypress-real-events": "^1.14.0",
+    "dotenv": "^16.5.0"
   }
 }
