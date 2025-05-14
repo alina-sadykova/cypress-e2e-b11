@@ -1,7 +1,7 @@
 /// <reference types="cypress"/>
 import LoginPage from "../../pages/LoginPage";
 
-describe("Login Page Test", () => {
+describe("Login Page Test", { tags: "@regression" }, () => {
   beforeEach(() => {
     cy.visit(`${Cypress.env("SITE_URL")}/frontend`);
     cy.clickCard("Login Function");
@@ -38,7 +38,7 @@ describe("Login Page Test", () => {
    * 3. Validate error message is "Invalid Username entered!"
    */
 
-  it("Login with POM - Negative", () => {
+  it("Login with POM - Negative", { tags: ["@smoke", "negative"] }, () => {
     loginPage.userLogin(
       Cypress.env("UI_USERNAME", "WongUser"),
       Cypress.env("UI_PASSWORD", "WrongPassword")

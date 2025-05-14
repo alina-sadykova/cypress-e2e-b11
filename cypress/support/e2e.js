@@ -17,8 +17,12 @@
 import "./commands";
 import "@4tw/cypress-drag-drop";
 import "cypress-real-events";
+import "cypress-mochawesome-reporter/register";
 // import exec, { spawnSync } from 'child_process'
 // import spawn from 'child_process'
+
+const registerCypressGrep = require("@cypress/grep");
+registerCypressGrep();
 
 beforeEach(() => {
   cy.visit(`${Cypress.env("SITE_URL")}/frontend`);
@@ -27,7 +31,7 @@ beforeEach(() => {
 before(() => {
   // exec('node index.js')
   // spawn('node index.js')
-  //   cy.exec("node index.js");
+  cy.exec("node index.js");
   // cy.exec('react run')
 });
 
