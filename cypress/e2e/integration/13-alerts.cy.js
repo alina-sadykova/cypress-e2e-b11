@@ -1,24 +1,24 @@
 /// <reference types="cypress"/>
 
-describe("Handling Alerts", () => {
+describe('Handling Alerts', () => {
   beforeEach(() => {
-    cy.visit("https://www.techglobal-training.com/frontend");
-    cy.clickCard("Alerts");
-  });
+    cy.visit('https://www.techglobal-training.com/frontend')
+    cy.clickCard('Alerts')
+  })
 
-  it("Handling the Warning Alert", () => {
-    cy.on("window:alert", (str) => {
-      console.log(`My warning alert text content is: ${str}`);
-      expect(str).to.eq("You are on TechGlobal Training application.");
-    });
+  it('Handling the Warning Alert', () => {
+    cy.on('window:alert', (str) => {
+      console.log(`My warning alert text content is: ${str}`)
+      expect(str).to.eq('You are on TechGlobal Training application.')
+    })
 
-    cy.get("#warning_alert").click();
+    cy.get('#warning_alert').click()
     // cy.get('#warning_alert').click()
     // cy.get('#warning_alert').click()
     // cy.get('#warning_alert').click()
     // cy.get('#warning_alert').click()
     // cy.get('#warning_alert').click()
-  });
+  })
 
   /**
    * CONFIRMATION ALERT
@@ -30,22 +30,22 @@ describe("Handling Alerts", () => {
    * 6. Validate the result message equals "You rejected the alert by clicking Cancel."
    */
 
-  it("Handling the Confirmation Alert", () => {
-    cy.on("window:confirm", (str) => {
+  it('Handling the Confirmation Alert', () => {
+    cy.on('window:confirm', (str) => {
       expect(str).to.eq(
-        "Would you like to stay on TechGlobal Training application?"
-      );
-      return false;
-    });
+        'Would you like to stay on TechGlobal Training application?'
+      )
+      return false
+    })
 
-    cy.get("#confirmation_alert").click();
-    cy.get("#action").should(
-      "have.text",
-      "You rejected the alert by clicking Cancel."
-    );
-  });
+    cy.get('#confirmation_alert').click()
+    cy.get('#action').should(
+      'have.text',
+      'You rejected the alert by clicking Cancel.'
+    )
+  })
 
-  it("Handling Prompt Alert", () => {
+  it('Handling Prompt Alert', () => {
     // Clicks cancel for the prompt error
 
     // cy.window().then((win) => {
@@ -79,13 +79,13 @@ describe("Handling Alerts", () => {
 
     // Validate the alert message and enter your prompt
     cy.window().then((win) => {
-      cy.stub(win, "prompt").callsFake((message) => {
-        expect(message).to.eq("What would you like to say to TechGlobal?");
+      cy.stub(win, 'prompt').callsFake((message) => {
+        expect(message).to.eq('What would you like to say to TechGlobal?')
 
-        return "My Message";
-      });
-    });
+        return 'My Message'
+      })
+    })
 
-    cy.get("#prompt_alert").click();
-  });
-});
+    cy.get('#prompt_alert').click()
+  })
+})

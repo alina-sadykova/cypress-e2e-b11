@@ -12,15 +12,15 @@
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 
-Cypress.Commands.add("clickCard", (link) => {
-  cy.contains('.card, [class*="projectCard"]', link).click();
-});
+Cypress.Commands.add('clickCard', (link) => {
+  cy.contains('.card, [class*="projectCard"]', link).click()
+})
 
-Cypress.Commands.add("loginApp", (email, name) => {
-  cy.get('[name="email"]').type(email);
-  cy.get(".mb-3 > input").clear().type(name);
-  cy.get(".mb-3 + button").click();
-});
+Cypress.Commands.add('loginApp', (email, name) => {
+  cy.get('[name="email"]').type(email)
+  cy.get('.mb-3 > input').clear().type(name)
+  cy.get('.mb-3 + button').click()
+})
 
 /**
  * Adds two numbers.
@@ -38,7 +38,7 @@ Cypress.Commands.add("loginApp", (email, name) => {
  * // Return 10
  */
 export function add(a, b) {
-  return a + b;
+  return a + b
 }
 //
 //
@@ -46,32 +46,32 @@ export function add(a, b) {
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
 
-Cypress.Commands.add("logText", { prevSubject: true }, (subject) => {
-  const text = subject.text();
-  cy.log(text);
+Cypress.Commands.add('logText', { prevSubject: true }, (subject) => {
+  const text = subject.text()
+  cy.log(text)
 
-  return cy.wrap(subject);
-});
+  return cy.wrap(subject)
+})
 
 Cypress.Commands.add(
-  "haveText",
-  { prevSubject: "element" },
+  'haveText',
+  { prevSubject: 'element' },
   (subject, expectedText) => {
-    cy.wrap(subject).should("have.text", expectedText);
-    expect(subject).to.have.text(expectedText);
+    cy.wrap(subject).should('have.text', expectedText)
+    expect(subject).to.have.text(expectedText)
   }
-);
+)
 Cypress.Commands.add(
-  "validateAttributeAndValue",
+  'validateAttributeAndValue',
   { prevSubject: true },
   (subject, attrName, attrValue = null) => {
     if (attrValue === null) {
-      cy.wrap(subject).should("have.attr", attrName);
+      cy.wrap(subject).should('have.attr', attrName)
     } else {
-      cy.wrap(subject).should("have.attr", attrName, attrValue);
+      cy.wrap(subject).should('have.attr', attrName, attrValue)
     }
   }
-);
+)
 //
 // -- This is a dual command --
 // Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })

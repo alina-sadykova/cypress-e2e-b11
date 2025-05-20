@@ -1,12 +1,12 @@
 /// <reference types="cypress"/>
 
-describe("Cypress Actions", () => {
+describe('Cypress Actions', () => {
   beforeEach(() => {
-    cy.visit("https://www.techglobal-training.com/frontend");
-  });
+    cy.visit('https://www.techglobal-training.com/frontend')
+  })
   beforeEach(() => {
-    cy.contains(".card", "HTML Elements").click();
-  });
+    cy.contains('.card', 'HTML Elements').click()
+  })
 
   /**
    * Visit the techglobal frontend page
@@ -16,28 +16,28 @@ describe("Cypress Actions", () => {
    * And click on the "Sign in" button
    * Validate "You clicked on “Sign in”" text is visible
    */
-  it("Click Action - click()", () => {
-    cy.get("#register_button").click();
-    cy.get(".mt-1").should("have.text", "You clicked on “Register”");
+  it('Click Action - click()', () => {
+    cy.get('#register_button').click()
+    cy.get('.mt-1').should('have.text', 'You clicked on “Register”')
 
-    cy.get("#signin_button").click();
-    cy.get(".mt-1").should("have.text", "You clicked on “Sign in”");
+    cy.get('#signin_button').click()
+    cy.get('.mt-1').should('have.text', 'You clicked on “Sign in”')
 
-    cy.get("#register_button")
+    cy.get('#register_button')
       .click()
       .next()
       .next()
-      .should("have.text", "You clicked on “Register”")
+      .should('have.text', 'You clicked on “Register”')
       .prev()
       .click()
       .next()
-      .should("have.text", "You clicked on “Sign in”");
-  });
+      .should('have.text', 'You clicked on “Sign in”')
+  })
 
-  it("Checkbox & Radio Buttons - check()", () => {
+  it('Checkbox & Radio Buttons - check()', () => {
     // This assertion will not work, because '#apple_check' targets <label> web element
     // and this element is not the input itself, and it is not possible to get the input information from it
-    cy.get("#checkbox_1").click().should("be.checked");
+    cy.get('#checkbox_1').click().should('be.checked')
 
     /**
      * cy.check() can only be called on :checkbox and :radio.
@@ -56,14 +56,14 @@ describe("Cypress Actions", () => {
     // cy.get('#checkbox_1').check().should('be.checked')
     // cy.get('#checkbox_1').uncheck().should('not.be.checked')
 
-    cy.get("#checkbox_1")
+    cy.get('#checkbox_1')
       .check()
-      .should("be.checked")
+      .should('be.checked')
       .uncheck()
-      .should("not.be.checked");
-  });
+      .should('not.be.checked')
+  })
 
-  it("Checkbox & Radio Buttons - check() 2", () => {
+  it('Checkbox & Radio Buttons - check() 2', () => {
     /**
      * 1. Check on the Tesla checkbox button
      * 2. Then Validate its checked
@@ -71,14 +71,14 @@ describe("Cypress Actions", () => {
      * 4. Validate its unchecked
      */
 
-    cy.get("#checkbox_3")
+    cy.get('#checkbox_3')
       .check()
-      .should("be.checked")
+      .should('be.checked')
       .uncheck()
-      .should("not.be.checked");
-  });
+      .should('not.be.checked')
+  })
 
-  it("Checkbox & Radio Buttons - check() 3", () => {
+  it('Checkbox & Radio Buttons - check() 3', () => {
     /**
      * 1. Check on the Java radio button
      * 2. Then validate its checked
@@ -86,24 +86,24 @@ describe("Cypress Actions", () => {
      * 4. Validate its checked while Java is unchecked
      */
 
-    cy.get("#radio_1_option_1")
-      .should("not.be.checked")
+    cy.get('#radio_1_option_1')
+      .should('not.be.checked')
       .check()
-      .should("be.checked");
+      .should('be.checked')
 
-    cy.get("#radio_1_option_2")
-      .should("not.be.checked")
+    cy.get('#radio_1_option_2')
+      .should('not.be.checked')
       .check()
-      .should("be.checked");
+      .should('be.checked')
 
-    cy.get("#radio_1_option_1").should("not.be.checked");
-  });
+    cy.get('#radio_1_option_1').should('not.be.checked')
+  })
 
-  it("Checkbox & Radio Buttons - check() 4 - Multiple elements", () => {
+  it('Checkbox & Radio Buttons - check() 4 - Multiple elements', () => {
     cy.get('input[id^="radio_1"]')
-      .should("have.length", 3)
+      .should('have.length', 3)
       .each(($el) => {
-        cy.wrap($el).check().should("be.checked");
-      });
-  });
-});
+        cy.wrap($el).check().should('be.checked')
+      })
+  })
+})

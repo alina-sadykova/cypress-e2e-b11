@@ -1,15 +1,15 @@
 /// <reference types="cypress"/>
 
-describe("Cypress Custom Commands", () => {
+describe('Cypress Custom Commands', () => {
   beforeEach(() => {
-    cy.visit("https://www.techglobal-training.com/frontend");
-    cy.clickCard("HTML Elements");
-  });
+    cy.visit('https://www.techglobal-training.com/frontend')
+    cy.clickCard('HTML Elements')
+  })
 
-  it("Child Command", () => {
-    cy.get(".mr-2").validateAttributeAndValue("type");
-  });
-  it("Parent Command", () => {
+  it('Child Command', () => {
+    cy.get('.mr-2').validateAttributeAndValue('type')
+  })
+  it('Parent Command', () => {
     /* Parent Commands */
     // cy.get()
     // cy.url()
@@ -19,12 +19,12 @@ describe("Cypress Custom Commands", () => {
     // cy.on()
     // cy.window()
 
-    cy.selectDropdown("#company_dropdown1", "Apple");
+    cy.selectDropdown('#company_dropdown1', 'Apple')
 
-    cy.loginApp("randomEmail@gmail.com", "TechGlobal");
-  });
+    cy.loginApp('randomEmail@gmail.com', 'TechGlobal')
+  })
 
-  it.only("Child Command", () => {
+  it.only('Child Command', () => {
     /* Child Commands */
     // .should()
     // .find()
@@ -36,23 +36,23 @@ describe("Cypress Custom Commands", () => {
     //   cy.log(text)
     // })
 
-    cy.get("#main_heading").then(($el) => {
-      const text = $el.text();
-      cy.log(text);
-    });
+    cy.get('#main_heading').then(($el) => {
+      const text = $el.text()
+      cy.log(text)
+    })
 
-    cy.get("#main_heading").logText();
+    cy.get('#main_heading').logText()
 
-    cy.get("#main_heading").haveText("HTML Elements");
+    cy.get('#main_heading').haveText('HTML Elements')
 
-    cy.get("#main_heading").logText().haveText("HTML Elements");
+    cy.get('#main_heading').logText().haveText('HTML Elements')
 
-    cy.log(Cypress.env("SITE_URL"));
-    cy.log(Cypress.env("SCHOOL_NAME"));
-    cy.log(Cypress.env("UI_PASSWORD"));
-    cy.log(Cypress.env("UI_USERNAME"));
-  });
-});
+    cy.log(Cypress.env('SITE_URL'))
+    cy.log(Cypress.env('SCHOOL_NAME'))
+    cy.log(Cypress.env('UI_PASSWORD'))
+    cy.log(Cypress.env('UI_USERNAME'))
+  })
+})
 
 /*
 REUSABILITY

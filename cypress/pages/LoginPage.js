@@ -3,36 +3,36 @@ class LoginPage extends BasePage {
     always starts with get
     */
   getUsernameField() {
-    return cy.get("#username");
+    return cy.get('#username')
   }
 
   getPasswordField() {
-    return cy.get("#password");
+    return cy.get('#password')
   }
 
   getLoginButton() {
-    return cy.get("#login_btn");
+    return cy.get('#login_btn')
   }
 
   getSuccessLoginMessage() {
-    return cy.get("#success_lgn");
+    return cy.get('#success_lgn')
   }
 
   getLoginErrorMessage() {
-    return cy.get("#error_message");
+    return cy.get('#error_message')
   }
 
   getLogoutButton() {
-    return cy.get("#logout");
+    return cy.get('#logout')
   }
 
   getForgotPasswordLink() {
-    return cy.get('a[href="/frontend/login"]');
+    return cy.get('a[href="/frontend/login"]')
   }
 
   /* Action Methods */
   clickLoginButton() {
-    this.getLoginButton().click();
+    this.getLoginButton().click()
   }
 
   /**
@@ -43,9 +43,9 @@ class LoginPage extends BasePage {
    * userLogin('Tech', 'Global123')
    */
   userLogin(username, password) {
-    this.getUsernameField().type(username);
-    this.getPasswordField().type(password);
-    this.clickLoginButton();
+    this.getUsernameField().type(username)
+    this.getPasswordField().type(password)
+    this.clickLoginButton()
   }
 }
-export default LoginPage;
+export default LoginPage

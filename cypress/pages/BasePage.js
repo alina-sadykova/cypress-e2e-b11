@@ -1,20 +1,20 @@
 class BasePage {
   /* Locators */
   getLogo() {
-    return cy.get("#logo");
+    return cy.get('#logo')
   }
 
   getExercisesDropdown() {
-    return cy.get("#dropdown-exercises");
+    return cy.get('#dropdown-exercises')
   }
 
   getMainHeading() {
-    return cy.get("#main_heading");
+    return cy.get('#main_heading')
   }
 
   getMockInterviews() {
-    return cy.contains("div", "Mock Interviews");
+    return cy.contains('div', 'Mock Interviews')
   }
 }
 
-export default BasePage;
+export default BasePage
