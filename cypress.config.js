@@ -1,5 +1,5 @@
-const { defineConfig } = require('cypress')
-require('dotenv').config()
+const { defineConfig } = require("cypress");
+require("dotenv").config();
 
 module.exports = defineConfig({
   defaultCommandTimeout: 4000,
@@ -15,21 +15,22 @@ module.exports = defineConfig({
     UI_USERNAME: process.env.UI_USERNAME,
     UI_PASSWORD: process.env.UI_PASSWORD,
   },
-  reporter: 'cypress-mochawesome-reporter',
+  reporter: "cypress-mochawesome-reporter",
   reporterOptions: {
     charts: true,
-    reportPageTitle: 'custom-title',
+    reportPageTitle: "custom-title",
     embeddedScreenshots: true,
     inlineAssets: true,
     saveAllAttempts: false,
   },
   e2e: {
+    baseUrl: `${process.env.UI_URL}/frontend`,
     setupNodeEvents(on, config) {
       // implement node event listeners here
-      require('cypress-mochawesome-reporter/plugin')(on)
-      require('@cypress/grep/src/plugin')(config)
-      return config
+      require("cypress-mochawesome-reporter/plugin")(on);
+      require("@cypress/grep/src/plugin")(config);
+      return config;
     },
     video: true,
   },
-})
+});
