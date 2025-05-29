@@ -20,6 +20,7 @@
     "cypress": "^14.3.2",
     "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-real-events": "^1.14.0",
+    "date-fns": "^4.1.0",
     "dotenv": "^16.5.0",
     "eslint": "^9.26.0",
     "globals": "^16.1.0"
